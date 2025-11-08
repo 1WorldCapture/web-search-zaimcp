@@ -1,11 +1,15 @@
 {
   "name": "web-search-zaimcp",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Minimal CommonJS helper to call BigModel MCP webSearchPrime with connection reuse and robust parsing.",
   "main": "src/index.js",
+  "types": "src/index.d.ts",
   "exports": {
     ".": {
-      "require": "./src/index.js"
+      "types": "./src/index.d.ts",
+      "import": "./src/index.mjs",
+      "require": "./src/index.js",
+      "default": "./src/index.js"
     }
   },
   "files": [
@@ -13,8 +17,10 @@
     "README.md"
   ],
   "scripts": {
-    "test": "echo \"No tests yet\"",
-    "example": "node examples/run-web-search.js"
+    "test": "pnpm -s typecheck",
+    "typecheck": "tsc -p tests/types/tsconfig.json",
+    "example": "node examples/run-web-search.js",
+    "example:esm": "node examples/run-web-search.mjs"
   },
   "keywords": [
     "mcp",
@@ -33,6 +39,7 @@
   },
   "devDependencies": {
     "@types/node": "^24.10.0",
-    "dotenv": "^17.2.3"
+    "dotenv": "^17.2.3",
+    "typescript": "~5.6.3"
   }
 }

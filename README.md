@@ -21,13 +21,20 @@
 - Output prints `- title` + URL + optional summary snippet.
 
 **webSearchPrime Usage**
-- `const { webSearchPrime } = require('web-search-zaimcp')`
+- CommonJS: `const { webSearchPrime } = require('web-search-zaimcp')`
+- ESM/TypeScript (CJS package default import):
+  - `import pkg from 'web-search-zaimcp'; const { webSearchPrime } = pkg;`
+  - Or `createRequire`: `const { webSearchPrime } = createRequire(import.meta.url)('web-search-zaimcp')`
 - Accepts either a string (`'query'`) or full MCP params object.
 - Supported params mirror BigModel’s tool: `search_query`, `count` (1-50), `content_size`, `location`, `search_domain_filter`, `search_recency_filter`.
 - `options` (all optional):
   - `apiKey` (defaults to `process.env.BIGMODEL_API_KEY`).
   - `endpoint` (defaults to official WebSearch Prime MCP endpoint).
   - `reuseConnection` (default `true`; set `false` for isolated calls).
+
+**TypeScript**
+- This package ships `src/index.d.ts` and sets `"types"` and `exports.types`.
+- With NodeNext resolution, `exports.default` enables ESM default import to the CJS entry.
 
 **Return Value**
 - `{ items, rawBlocks }` where each item includes `{ title, url, summary, icon, siteName, media, publishedAt, refer, raw }`.
