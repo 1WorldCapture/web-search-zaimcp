@@ -1,0 +1,38 @@
+{
+  "name": "web-search-zaimcp",
+  "version": "0.1.0",
+  "description": "Minimal CommonJS helper to call BigModel MCP webSearchPrime with connection reuse and robust parsing.",
+  "main": "src/index.js",
+  "exports": {
+    ".": {
+      "require": "./src/index.js"
+    }
+  },
+  "files": [
+    "src",
+    "README.md"
+  ],
+  "scripts": {
+    "test": "echo \"No tests yet\"",
+    "example": "node examples/run-web-search.js"
+  },
+  "keywords": [
+    "mcp",
+    "bigmodel",
+    "web-search",
+    "agent-tools"
+  ],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.21.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.0",
+    "dotenv": "^17.2.3"
+  }
+}
